@@ -4,17 +4,38 @@ plugins {
 }
 
 android {
-    namespace = "com.qui.simpleapp"
+    namespace = "com.qui.wordpopup"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.qui.simpleapp"
-        minSdk = 23
+        applicationId = "com.qui.wordpopup"
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
     }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.documentfile:documentfile:1.0.1")
 }
